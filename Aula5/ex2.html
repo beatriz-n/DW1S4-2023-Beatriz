@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+
+        .colorRed {
+            background-color: rgb(255, 83, 83);
+        }
+
+        .colorGreen {
+            background-color: rgb(57, 180, 98);
+        }
+
+        .colorBlue {
+            background-color: rgb(66, 179, 255);
+
+        }
+
+        .colorYe {
+            background-color: rgb(255, 228, 108);
+
+        }
+        .padding td{
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div>
+        <table class="padding">
+            <tr>
+                <td colspan="2" rowspan="1" class="colorGreen">teste</td>
+                <td class="colorGreen">teste</td>
+                <td colspan="1" rowspan="3" class="colorGreen">teste</td>
+            </tr>
+            <tr>
+                <td class="colorRed">teste</td>
+                <td class="colorRed">teste</td>
+                <td class="colorRed">teste</td>
+            </tr>
+            <tr>
+                <td class="colorBlue">teste</td>
+                <td class="colorBlue" colspan="2">teste</td>
+            </tr>
+            <tr>
+                <td class="colorYe">teste</td>
+                <td class="colorYe">teste</td>
+                <td class="colorYe">teste</td>
+                <td class="colorYe">teste</td>
+            </tr>
+        </table>
+        <br>
+        <table>
+            <tr>
+                <td>
+                    Linha 1
+                </td>
+                <td class="colorGreen">
+                    ------
+                </td>
+                <td>
+                    green
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Linha 2
+                </td>
+                <td class="colorRed">
+                    ------
+                </td>
+                <td>
+                    red
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Linha 3
+                </td>
+                <td class="colorBlue">
+                    ------
+                </td>
+                <td>
+                    blue
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Linha 4
+                </td>
+                <td class="colorYe">
+                    ------
+                </td>
+                <td>
+                    yellow
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>
