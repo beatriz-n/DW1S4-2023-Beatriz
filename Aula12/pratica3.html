@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .link-voltar {
+            font-size: 50px;
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        .color1 {
+            background-color: rgb(192, 255, 192);
+        }
+
+        .link {
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        h1 {
+            margin-left: 5%;
+        }
+
+        .corpo div {
+            border: 1px solid black;
+            width: 10vw;
+            height: 10vw;
+            margin: 1vw;
+        }
+
+        .corpo {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .corpo p {
+            margin-bottom: 10rem;
+        }
+
+        tr,
+        td {
+            border: 5px solid rgb(89, 233, 89);
+        }
+
+        .box-lateral {
+            align-items: stretch;
+            font-size: x-large;
+        }
+
+        .box-lateral h3{
+            text-align: center;
+        }
+        .box-lateral p{
+            text-align: justify;
+            padding: 1vw;
+        }
+
+        .flex-container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .box1 {
+            flex: 4;
+        }
+
+        .box {
+            flex: 1;
+        }
+
+        .foot {
+            height: 5vw;
+            background-color:  rgb(192, 255, 192);
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: larger;
+        }
+
+        .caixa1,
+        .caixa2,
+        .caixa3,
+        .caixa4,
+        .caixa5,
+        .caixa6,
+        .caixa7,
+        .caixa8,
+        .caixa9,
+        .caixa10 {
+            border: 1px solid black;
+            width: 10vw;
+            height: 10vw;
+            margin: 1vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2vw;
+        }
+        a{
+            font-size: xx-large;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="color1">
+        <h1>
+            layout flex box
+        </h1>
+        <div class="link">
+            <a href="">inicio</a>
+            <a href="">sobre</a>
+            <a href="">produto</a>
+            <a href="">contato</a>
+        </div>
+
+    </div>
+    <table>
+        <tr class="flex-container">
+            <td class="box1">
+                <h2>corpo do site</h2>
+                <div class="corpo">
+
+                    <br>
+                    <div class="caixa1"><span>1</span></div>
+                    <div class="caixa2"><span>2</span></div>
+                    <div class="caixa3"><span>3</span></div>
+                    <div class="caixa4"><span>4</span></div>
+                    <div class="caixa5"><span>5</span></div>
+                    <div class="caixa6"><span>6</span></div>
+                    <div class="caixa7"><span>7</span></div>
+                    <div class="caixa8"><span>9</span></div>
+                    <div class="caixa9"><span>10</span></div>
+                </div>
+            </td>
+            <td class="box">
+                <div class="box-lateral">
+                    <h3>box lateral</h3>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Atque aperiam provident magni facere
+                        doloremque
+                        dolorum quo nostrum pariatur corporis expedita itaque, impedit culpa voluptate sunt sed amet
+                        necessitatibus dolores consequuntur.</p>
+                </div>
+
+            </td>
+        </tr>
+    </table>
+    <div class="foot">
+        <span class="font-foot">Criado por Beatriz Nespoli</span>
+    </div>
+
+    <br>
+    <button><a href="index.html">Voltar</a></button>
+</body>
+
+</html>
