@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .link-voltar {
+            font-size: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>formulario</h1>
+    <form action="" method="POST">
+        <label for="nome">Nome</label>
+        <input type="text" name="nome" id="nome" placeholder="Digite seu nome">
+        <br>
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" placeholder="Digite seu e-mail">
+        <br>
+        <label for="carro">Marca de carro preferida</label>
+        <select name="carro" id="carro">
+            <option value="0">Selecione</option>
+            <option value="1">Toyota</option>
+            <option value="2">Honda</option>
+            <option value="3">Mercedes-Benz</option>
+            <option value="4">Nissan</option>
+        </select>
+        <br>
+        <label for="lname">Observações</label>
+        <textarea name="obs" id="obs" cols="30" rows="6" placeholder="Digite suas observações"></textarea>
+        <br>
+        <label for="lingua">Linguagem web favorita</label>
+        <table>
+            <tr>
+                <td><input type="radio" name="html" id="html" value="html"></td>
+                <td> <label for="html">HTML</label></td>
+            </tr>
+            <tr>
+                <td><input type="radio" name="css" id="css" value="css"></td>
+                <td> <label for="css">CSS</label></td>
+            </tr>
+            <tr>
+                <td><input type="radio" name="js" id="js" value="js"></td>
+                <td> <label for="js">Java Script</label></td>
+            </tr>
+        </table>
+        <label for="lingua">Filmes que quero ver quando lançar</label>
+        <table>
+            <tr>
+                <td><input type="checkbox" name="batman" id="batman" value="batman"></td>
+                <td> <label for="html">Batman</label></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="tron" id="tron" value="tron"></td>
+                <td> <label for="css">Tron 3</label></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="jogos" id="jogos" value="jogos"></td>
+                <td> <label for="js">Jogos Vorazes</label></td>
+            </tr>
+        </table>
+
+        <button type="submit">Enviar</button>
+        <button type="reset">Cancelar</button>
+    </form>
+    <br>
+    <button><a href="index.html">Voltar</a></button>
+</body>
+
+</html>
