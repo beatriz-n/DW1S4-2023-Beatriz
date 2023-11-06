@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="askName()">
+    <script>
+        function askName() {
+            var name = prompt("Qual é o seu nome?");
+            if (name) {
+                var welcomeMessage = "Seja bem-vindo, ";
+                if (welcomeMessage) {
+                    var nameElement = document.createElement("h1");
+                    var nameElement2 = document.createElement("h3");
+                    var textNodeTitle = document.createTextNode("Praticando 1 - JS ");
+                    var textNode = document.createTextNode("Seja bem-vindo, " + name);
+                    nameElement.appendChild(textNodeTitle);
+                    nameElement2.appendChild(textNode);
+                    document.body.insertBefore(nameElement, document.body.childNodes[1]);
+                    document.body.insertBefore(nameElement2, document.body.childNodes[2]);
+                }
+            }
+        }
+
+        function adiciona() {
+            const node = document.createElement("p")
+            const texto = document.createTextNode("Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, ex quisquam! Natus, saepe enim? Aspernatur quibusdam natus nulla id, assumenda error recusandae molestiae quidem, fugit nemo ipsum commodi necessitatibus culpa.")
+            node.appendChild(texto);
+            document.getElementById("caixa").appendChild(node);
+        }
+
+        function remove() {
+            var caixa = document.getElementById("caixa");
+            caixa.parentNode.removeChild(caixa);
+        }
+    </script>
+
+    <button onclick="adiciona()">Adicionar Texto</button>
+    <button onclick="remove()">Remover Texto</button>
+    <div id="caixa"></div>
+</body>
+</html>
