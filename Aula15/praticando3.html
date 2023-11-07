@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,41 +26,90 @@
         .color3 {
             background-color: red;
         }
+        .flex-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
     </style>
 </head>
 
-<body>
+<body onmouseenter="mudacor5()">
     <div class="container-fluid">
         <h1>Praticando 3 - Cores</h1>
         <div class="row">
-            <div onmouseenter="mudacor()" class="col box1 bg-primary"></div>
-            <div onmouseenter="mudacor1()" class="col box1 bg-success"></div>
-            <div onmouseenter="mudacor2()" class="col box1 bg-secondary"></div>
-            <div onmouseenter="mudacor3()" class="col box1 bg-warning"></div>
-            <div onmouseenter="mudacor4()" class="col box1 bg-danger"></div>
+            <div onmouseenter="mudacor(), texto()" onclick="mudacor(), removePreview()" class="col box1 bg-primary"></div>
+            <div onmouseenter="mudacor1(), texto()" onclick="mudacor1(), removePreview()" class="col box1 bg-success"></div>
+            <div onmouseenter="mudacor2(), texto()" onclick="mudacor2(), removePreview()" class="col box1 bg-secondary"></div>
+            <div onmouseenter="mudacor3(), texto()" onclick="mudacor3(), removePreview()" class="col box1 bg-warning"></div>
+            <div onmouseenter="mudacor4(), texto()" onclick="mudacor4(), removePreview()" class="col box1 bg-danger"></div>
         </div>
         <button type="button" class="btn btn-light" onclick="reset()">Reset</button>
     </div>
-
 </body>
+
 </html>
+
 <script>
-    function mudacor(){
+    let previewCreated = false;
+    
+    function texto() {
+        if (previewCreated) {
+            return;
+        }
+
+        var texto = document.createElement('div');
+        texto.textContent = 'Preview';
+        texto.className = 'preview-text';
+        texto.style.position = 'absolute';
+        texto.style.top = '50%';
+        texto.style.left = '50%';
+        texto.style.transform = 'translate(-50%, -50%)';
+        texto.style.fontSize = '48px';
+        document.body.appendChild(texto);
+        previewCreated = true;
+    }
+
+    function removePreview() {
+        if (previewCreated) {
+            var preview = document.querySelector('.preview-text');
+            document.body.removeChild(preview);
+            previewCreated = false;
+        }
+
+    }
+
+    function mudacor5() {
+        document.body.style.backgroundColor = "lightblue";
+        removePreview();
+    }
+
+    function mudacor() {
         document.body.style.backgroundColor = "blue";
     }
-    function mudacor1(){
+
+    function mudacor1() {
         document.body.style.backgroundColor = "green";
     }
-    function mudacor2(){
+
+    function mudacor2() {
         document.body.style.backgroundColor = "gray";
     }
-    function mudacor3(){
+
+    function mudacor3() {
         document.body.style.backgroundColor = "yellow";
     }
-    function mudacor4(){
+
+    function mudacor4() {
         document.body.style.backgroundColor = "red";
     }
-    function reset(){
+
+    function reset() {
         document.body.style.backgroundColor = "white";
+        removePreview();
+    }
+
+    function hideElement(element) {
+        element.style.display = "none";
     }
 </script>
