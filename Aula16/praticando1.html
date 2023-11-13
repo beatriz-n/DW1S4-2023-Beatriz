@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+</head>
+
+<body>
+    <div class="container-fluid">
+        <h1 class="texto">Praticando 1 - Lâmpada</h1>
+        <div class="row  d-flex justify-content-center">
+            <img onmouseenter="acende()" id="lampada" src="../img/lampada.png" alt="">
+        </div>
+        <div class="row d-flex justify-content-center">
+            <h3 class="texto" id="texto"></h3>
+        </div>
+    </div>
+
+</body>
+
+</html>
+<script>
+    var aux;
+
+    function acende() {
+        if (aux == 0) {
+            aux = 1;
+        } else {
+            aux = 0;
+        }
+
+        var lampada = document.getElementById("lampada");
+        var elementosTexto = document.querySelectorAll(".texto");
+        var body = document.body;
+
+        if (aux == 0) {
+            lampada.src = "../img/lampada-acesa.png";
+            for (var i = 0; i < elementosTexto.length; i++) {
+                elementosTexto[i].style.color = 'white';
+            }
+            body.style.background = "black";
+            document.getElementById('texto').innerHTML = 'Luz Acesa';
+        }
+        if (aux == 1) {
+            lampada.src = "../img/lampada.png";
+            for (var i = 0; i < elementosTexto.length; i++) {
+                elementosTexto[i].style.color = 'black';
+            }
+            body.style.background = "white";
+            document.getElementById('texto').innerHTML = 'Luz Apagada';
+        }
+
+    }
+
+</script>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../bootstrap-4.0.0-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../bootstrap-4.0.0-dist/js/bootstrap.min.js">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/jquery.inputmask.bundle.min.js"></script>
+</head>
+
+<body>
+    <form class="row g-3 was-validated">
+        <div class="container-fluid">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="nome" class="form-label">Nome </label>
+                            <input class="form-control" id="nome" placeholder="Digite seu nome" required>
+                            <div class="invalid-feedback">
+                                Digite seu nome
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="email" class="form-label">E-mail</label>
+                            <div class="input-group has-validation">
+                                <span class="input-group-text" id="email">@</span>
+                                <input type="text" class="form-control" id="email"
+                                    aria-describedby="validationTooltipUsernamePrepend" required>
+                                <div class="invalid-tooltip">
+                                    Digite o seu E-mail
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="idade" class="form-label">Idade: </label>
+                            <input class="form-control" id="idade" placeholder="Digite sua idade" required>
+                            <div class="invalid-feedback">
+                                Digite sua idade
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="telefone" class="form-label">Telefone: </label>
+                            <input class="form-control" id="telefone" placeholder="Digite seu telefone" required>
+                            <div class="invalid-feedback">
+                                Digite seu telefone
+                            </div>
+                        </div>
+
+
+
+                        <div class="col-md-12">
+                            <select class="form-select" required aria-label="select example">
+                                <option value="">Cidade</option>
+                                <option value="1">Votuporanga</option>
+                                <option value="2">Rio Preto</option>
+                                <option value="3">Indiaporã</option>
+                            </select>
+                            <div class="invalid-feedback">Example invalid select feedback</div>
+                        </div>
+
+                        <!-- <div class="mb-3">
+                        <input type="file" class="form-control" aria-label="file example" required>
+                        <div class="invalid-feedback">Example invalid form file feedback</div>
+                        </div> -->
+
+                        <div class="col-md-12">
+                            <label for="validationTextarea" class="form-label">Descrição</label>
+                            <textarea class="form-control" id="validationTextarea"
+                                placeholder="Required example textarea" required></textarea>
+                            <div class="invalid-feedback">
+                                Please enter a message in the descricao.
+                            </div>
+                        </div>
+                        <br>
+                        <div class="form-check col-md-12">
+                            <input type="checkbox" class="form-check-input" id="validationFormCheck1" required>
+                            <label class="form-check-label" for="validationFormCheck1">Aceite os termos</label>
+                            <div class="invalid-feedback">Termos de condição</div>
+                        </div>
+                        <div class="col-md-12">
+                            <button class="btn btn-primary" type="submit">Enviar</button>
+                            <button class="btn btn-warning" type="reset">Cancelar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+
+</html>
+<script>
+    $(function () {
+        $('.dropdown-toggle').dropdown();
+    });
+
+    (function () {
+        'use strict';
+        window.addEventListener('load', function () {
+            var forms = document.getElementsByClassName('needs-validation');
+            var validation = Array.prototype.filter.call(forms, function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    })();
+
+    $('#telefone').inputmask({
+        mask: ['(99) 9999-9999', '(99) 99999-9999']
+    });
+</script>
