@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .tamanho {
+            padding: 2vw;
+            position: absolute;
+        }
+
+        span {
+            color: darkred;
+        }
+
+        .container-fluid {
+            display: flex;
+        }
+
+        .box {
+            padding: 2vw;
+            width: 20%;
+            height: auto;
+            margin: 2vw;
+            cursor: pointer;
+            position: relative;
+            border: none;
+        }
+
+        .color {
+            background-color: red;
+        }
+
+        .color2 {
+            background-color: orange;
+        }
+
+        .color3 {
+            background-color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Praticando 4 - mini gay</h1>
+    <br>
+    <div class="col-12"><h3>Instruções</h3></div>
+    <div class="col-12"><p>Clique em um dos quadrado coloridos</p></div>
+    <div class="col-12"><p>Depois use as teclas <span>A W S D</span> para movimentar os elemetos de um lado à outro</p></div>
+    <div class="col-12"><img src="../img/wasd.jpg" alt=""></div>
+    <div class="container-fluid">
+        <div class="box color" id="div1" onclick="mover('div1')">teste</div>
+        <div class="box color2" id="div2" onclick="mover('div2')">teste</div>
+        <div class="box color3" id="div3" onclick="mover('div3')">teste</div>
+    </div>
+
+    <script>
+        let selectedBox = null;
+
+        document.addEventListener("keydown", function (event) {
+            if (selectedBox) {
+                moverBox(selectedBox, event);
+            }
+
+        });
+
+        function mover(boxId, event) {
+            if (selectedBox) {
+                selectedBox.style.border = "none";
+            }
+
+            selectedBox = document.getElementById(boxId);
+            selectedBox.style.border = "2px solid black";
+        }
+
+        function moverBox(box, event) {
+            console.log(event);
+            let leftpos = parseInt(window.getComputedStyle(box).getPropertyValue("left"))
+            let toppos = parseInt(window.getComputedStyle(box).getPropertyValue("top"))
+
+            switch (event.key) {
+                case "a":
+                    box.style.left = leftpos - 10 + 'px';
+                    break;
+                case "d":
+                    box.style.left = leftpos + 10 + 'px';
+                    break;
+                case "w":
+                    box.style.top = toppos - 10 + 'px';
+                    break;
+                case "s":
+                    box.style.top = toppos + 10 + 'px';
+                    break;
+            }
+        }
+
+    </script>
+</body>
+
+</html>
