@@ -42,20 +42,35 @@
         .color3 {
             background-color: green;
         }
+
+        .centraliza {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
     </style>
 </head>
 
 <body>
     <h1>Praticando 4 - mini gay</h1>
     <br>
-    <div class="col-12"><h3>Instruções</h3></div>
-    <div class="col-12"><p>Clique em um dos quadrado coloridos</p></div>
-    <div class="col-12"><p>Depois use as teclas <span>A W S D</span> para movimentar os elemetos de um lado à outro</p></div>
+    <div class="col-12">
+        <h3>Instruções</h3>
+    </div>
+    <div class="col-12">
+        <p>Clique em um dos quadrado coloridos</p>
+    </div>
+    <div class="col-12">
+        <p>Depois use as teclas <span>A W S D</span> para movimentar os elemetos de um lado à outro</p>
+    </div>
     <div class="col-12"><img src="../img/wasd.jpg" alt=""></div>
-    <div class="container-fluid">
-        <div class="box color" id="div1" onclick="mover('div1')">teste</div>
-        <div class="box color2" id="div2" onclick="mover('div2')">teste</div>
-        <div class="box color3" id="div3" onclick="mover('div3')">teste</div>
+    <div class="container-fluid d-flex justify-content-center">
+    <div class="box color" style="display: none;" id="div4" onclick="mover('div4')"></div>
+    </div>
+    <div class="container-fluid d-flex justify-content-center">
+        <div class="box color" id="div1" onclick="troca(1)"></div>
+        <div class="box color2" id="div2" onclick="troca(2)"></div>
+        <div class="box color3" id="div3" onclick="troca(3)"></div>
     </div>
 
     <script>
@@ -77,24 +92,49 @@
             selectedBox.style.border = "2px solid black";
         }
 
+        function troca(flag) {
+            var boxSelecionada = document.getElementById("div4");
+            var boxSelecionada1 = document.getElementById("div1");
+            var boxSelecionada2 = document.getElementById("div2");
+            var boxSelecionada3 = document.getElementById("div3");
+
+            if (flag == 1) {
+                boxSelecionada.style.backgroundColor = "red";
+                boxSelecionada1.style.display = "none";
+                boxSelecionada2.style.display = "block";
+                boxSelecionada3.style.display = "block";
+
+            } else if (flag == 2) {
+                boxSelecionada2 = document.getElementById("div2");
+                boxSelecionada.style.backgroundColor = "orange";
+                boxSelecionada2.style.display = "none";
+                boxSelecionada1.style.display = "block";
+                boxSelecionada3.style.display = "block";
+            } else if (flag == 3) {
+                boxSelecionada3 = document.getElementById("div3");
+                boxSelecionada.style.backgroundColor = "green";
+                boxSelecionada3.style.display = "none";
+                boxSelecionada2.style.display = "block";
+                boxSelecionada1.style.display = "block";
+            }
+            boxSelecionada.style.display = "block";
+            mover('div4');
+        }
+
+
         function moverBox(box, event) {
             console.log(event);
             let leftpos = parseInt(window.getComputedStyle(box).getPropertyValue("left"))
             let toppos = parseInt(window.getComputedStyle(box).getPropertyValue("top"))
 
-            switch (event.key) {
-                case "a":
-                    box.style.left = leftpos - 10 + 'px';
-                    break;
-                case "d":
-                    box.style.left = leftpos + 10 + 'px';
-                    break;
-                case "w":
-                    box.style.top = toppos - 10 + 'px';
-                    break;
-                case "s":
-                    box.style.top = toppos + 10 + 'px';
-                    break;
+            if (event.keyCode == 65 || event.keyCode == 37) { //A
+                box.style.left = leftpos - 10 + 'px';
+            } else if (event.keyCode == 83 || event.keyCode == 40) { //S
+                box.style.top = toppos + 10 + 'px';
+            } else if (event.keyCode == 68 || event.keyCode == 39) { //D
+                box.style.left = leftpos + 10 + 'px';
+            } else if (event.keyCode == 87 || event.keyCode == 38) { //W
+                box.style.top = toppos - 10 + 'px';
             }
         }
 
