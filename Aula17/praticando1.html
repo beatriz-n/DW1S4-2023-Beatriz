@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="../bootstrap-4.0.0-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../bootstrap-4.0.0-dist/js/bootstrap.min.js">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/jquery.inputmask.bundle.min.js"></script>
+
+</head>
+
+<body>
+    <form class="row g-3 was-validated">
+        <div class="container-fluid">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="col-md-12">
+                                <label for="nome" class="form-label">Nome </label>
+                                <input class="form-control" id="nome" placeholder="Digite seu nome" required>
+                                <div class="invalid-feedback">
+                                    Digite seu nome
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <label for="nome" class="form-label">Email </label>
+                                <input class="form-control" id="email" placeholder="Digite seu email" required>
+                                <div class="invalid-feedback">
+                                    Digite seu email
+                                </div>
+                            </div>
+                                <div class="col-lg-12" style="text-align: right;">
+                                    <button class="btn btn-primary" onclick="inserir()" type="submit">Cadastrar</button>
+                                    <button class="btn btn-warning" type="reset">Cancelar</button>
+                                </div>
+                        </div>
+                        <div class="col-md-6">
+                            <ul class="list-group">
+                                <table id="listagem" class="display" style="width:100%">
+                                    <thead>
+                                        <tr>
+                                            <th>Nome</th>
+                                            <th>Email</th>
+                                            <th style="text-align: center;">Opções</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="lista-dados"></tbody>
+                                </table>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </form>
+</body>
+
+</html>
+<script>
+    (function () {
+        'use strict';
+        window.addEventListener('load', function () {
+            var forms = document.getElementsByClassName('needs-validation');
+            var validation = Array.prototype.filter.call(forms, function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    })();
+
+    $('#telefone').inputmask({
+        mask: ['(99) 9999-9999', '(99) 99999-9999']
+    });
+
+    $(document).ready(function () {
+        $.ajax({
+            url: "https://epansani.com.br/2023/dw1s4/ajax/list.php",
+            type: "GET",
+            dataType: "json",
+            success: function (data) {
+                exibirLista(data);
+            },
+            error: function (error) {
+                console.error("Erro na requisição:", error);
+            }
+        });
+
+        function exibirLista(dados) {
+            $("#lista-dados").empty();
+
+            $.each(dados, function (index, item) {
+                var linha = $("<tr><td>" + item.nome + "</td><td>" + item.email + "</td><td><div style='text-align: center;'><button class='btn btn-primary' onclick='alterar()'>Alterar</button> <button class='btn btn-warning' onclick='excluir()' type='reset'>Excluir</button></div></td></tr>");
+                $("#lista-dados").append(linha);
+            });
+        }
+    });
+
+    function inserir() {
+        // Obter os valores do nome e email do formulário
+        var nome = $("#nome").val();
+        var email = $("#email").val();
+        
+        var dados = {
+            nome: nome,
+            email: email
+        };
+
+        $.ajax({
+            url: "https://epansani.com.br/2023/dw1s4/ajax/ins.php",
+            type: "POST",
+            contentType: "application/json",
+            data: JSON.stringify(dados),
+            success: function (response) {
+                console.log("Resposta do servidor:", response);
+                alert("aqui");
+            },
+            error: function (error) {
+                alert("1");
+                console.error("Erro na inserção:", error);
+            }
+        });
+    }
+
+</script>
+
+</html>
